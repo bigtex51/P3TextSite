@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sketches</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+  <script src="sketch1.js"></script>
+  <script src="sketch2.js"></script>
+  <script src="sketch3.js"></script>
+  <script src="sketch4.js"></script>
+
+  <script>
+    const sketchFns = [sketch1, sketch2, sketch3, sketch4];
+    let currentIndex = 0;
+    let instance = new p5(sketchFns[0]);
+
+    window.nextSketch = function() {
+      instance.remove();
+      currentIndex = (currentIndex + 1) % sketchFns.length;
+      instance = new p5(sketchFns[currentIndex]);
+    };
+  </script>
+</body>
+</html>
