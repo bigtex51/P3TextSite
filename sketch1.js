@@ -3,10 +3,12 @@ function sketch1(p) {
   let set = 0;
   let img1;
   let img2;
+  let myFont;
 
   p.preload = function() {
     img1 = p.loadImage('img/singingguy.png'); // replace with your image path
     img2 = p.loadImage('img/scaryguy.png'); // replace with your image path
+    myFont = p.loadFont('fonts/Melted Monster.ttf'); // replace with your font path
   };
 
   p.setup = function() {
@@ -17,23 +19,27 @@ function sketch1(p) {
     p.background(220);
 
     if (set == 0) {
-      p.fill(30, 100, 200); 
+      p.fill(255); 
       p.rect(0, 0, 1000, 1000); 
       p.image (img1, 500, 400, 600, 600*(img1.height/img1.width)); // x, y, width, height
       p.textSize(150);
-      p.fill(255); 
-      p.text('Singing Songs', 200, 200, 500, 400); 
-
-
+      p.fill(128,0,0); 
+      p.textFont('Georgia');
+      p.text('Singing', 200, 200, 500, 400);
+      p.text('Songs', 100, 400, 500, 400); 
     }
 
     if (set == 1) {
-      p.fill(200, 50, 0); 
+      p.fill(0); 
       p.rect(0, 0, 1000, 1000); 
       p.image (img2, 0, 400, 600, 600*(img2.height/img2.width)); // x, y, width, height
+      p.textSize(75);
+      p.fill(126,0,0); 
+      p.textFont('Georgia');
+      p.text('Of', 300, 125, 500, 400); 
+      p.textFont(myFont);
       p.textSize(150);
-      p.fill(255); 
-      p.text('Of Scariness', 200, 100, 500, 400); 
+      p.text('Scariness', 200, 300, 500, 400);
     }
 
     function nextButton(p) {

@@ -5,11 +5,13 @@ function sketch3(p) {
   };
 
   p.draw = function() {
-    p.fill(255);
+    p.fill(0);
     p.rect(0, 0, 1000, 1000);
-    p.fill(0); // this is how you set text color
-    p.textSize(80);
-    p.text('I feel most obligated to remind you of the most ferocious beast of all', 100, 100, 800, 800);
+    p.fill(126,0,0); // this is how you set text color
+    p.textSize(100);
+    p.textFont('Georgia');
+    p.text('I feel obligated at this moment to remind you', 100, 100, 800, 800);
+    p.text('of the most ferocious beast of all', 100, 450, 800, 800);
 
     nextButton(p); // call it here
   };
